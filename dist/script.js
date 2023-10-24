@@ -7,6 +7,10 @@ weather = document.querySelector(".weather");
 desc = document.querySelector(".desc");
 API = ""; // Put in your API
 // ---------------------------------------
+const callAPI = (id) => {
+  //Code to fetch the API
+};
+
 const setWeatherDetails = (data) => {
   // console.log(data);
   //Weather description
@@ -43,10 +47,6 @@ const setWeatherDetails = (data) => {
         "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjld66Ia5g_hpBn3Impi3zzOBHqWkjQInGLxTb2uXksuCsrkQU8HjlVyLobEJEGg8fRSIxeFzldGEHUmWcaiZBwAcRy4dGDpFX1BjTSB56qmBjW5tEW3RSC9_mCuLU_a8RuXchxGY7Oc8HLLl-IfaDW19Z0ZJJfNae9tECXRIyEu7rmJ3da08z8cI-phw/s320/haze.png";
       break;
   }
-};
-
-const callAPI = (id) => {
-  //Code to fetch the API
 };
 
 searchButton.addEventListener("click", (e) => {
