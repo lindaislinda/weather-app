@@ -5,15 +5,46 @@ windSpeed = document.querySelector("#windSpeed");
 humidity = document.querySelector(".humidity");
 weather = document.querySelector(".weather");
 desc = document.querySelector(".desc");
-API = "8cf5ac5621c8d0266298a149e49d7514";
+API = "d908669f484525330f748c49c5a11dd7"; // Put in your API
 // ---------------------------------------
+
+const callAPI = (api) => {
+  fetch(
+    `https://api.openweathermap.org/data/2.5/weather?q=${searchInput.value}&appid=${api}`
+  )
+    .then((response) => {
+      if (!response.ok) {
+        alert("Check city spelling. Something went WRONG!!!");
+        throw new Error(`Request failed with status ${response.status}`);
+      }
+      return response.json();
+    })
+    .then((data) => {
+      setWeatherDetails(data);
+      console.log(data);
+    })
+    .catch((error) => console.log(error));
+};
+
 const setWeatherDetails = (data) => {
   // console.log(data);
+
+  //Weather description
   desc.innerHTML = data.weather[0].description;
-  weather.innerHTML = Math.round((data.main.temp - 273.15) * 9/5 + 32) + "°F";
+
+  //Temperature
+  weather.innerHTML =
+    Math.round(((data.main.temp - 273.15) * 9) / 5 + 32) + "°F";
+
+  //Humidity
   humidity.innerHTML = data.main.humidity + "%";
-  windSpeed.innerHTML = data.wind.speed + "km/h";
-  switch (data.weather[0].main) {
+
+  //Wind Speed
+  windSpeed.innerHTML = Math.round(data.wind.speed * 2.237) + "MPH";
+
+  weatherMainDetail = data.weather[0].main;
+
+  switch (weatherMainDetail) {
     case "Clouds":
       weatherIcon.src =
         "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiwFTkt5z_dxU6w1UnS1PxiZV3HDiPGsAW5Lrsp09MnlCmkQre9GzO8MnGytaaY1eZoqBN6SMJ4U578_uDtiuXswovr1T3o-Kt5KK0mlN_zC0RDodJFaKHQ3Uk-HIZ3vuMvAKNJi8DDFwWA7F6BOxz78Oh-UePwJTuc3PG0ZIZypPE1xlMPl5z46joaEw/s320/Clouds.png";
@@ -41,25 +72,6 @@ const setWeatherDetails = (data) => {
   }
 };
 
-const callAPI = (id) => {
-  fetch(
-    `https://api.openweathermap.org/data/2.5/weather?q=${searchInput.value}&appid=${id}`
-  )
-    .then((response) => {
-      // indicates whether the response is successful (status code 200-299) or not
-      if (!response.ok) {
-        alert("Check spelling of City and try again or Something Went Wrong!");
-        throw new Error(`Request failed with status ${response.status}`);
-      }
-      return response.json();
-    })
-    .then((data) => {
-      setWeatherDetails(data);
-      console.log(data);
-    })
-    .catch((error) => console.log(error));
-};
-
 searchButton.addEventListener("click", (e) => {
   if (searchInput.value == "") {
     alert("Please Enter City Name.");
@@ -77,4 +89,3 @@ searchInput.addEventListener("keypress", (e) => {
 
 searchButton.click();
 
-Resources;
