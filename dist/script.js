@@ -7,7 +7,7 @@ weather = document.querySelector(".weather");
 desc = document.querySelector(".desc");
 API = ""; // Put in your API
 // ---------------------------------------
-const callAPI = (id) => {
+const callAPI = (api) => {
   //Code to fetch the API
 };
 
