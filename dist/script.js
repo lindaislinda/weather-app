@@ -5,14 +5,18 @@ windSpeed = document.querySelector("#windSpeed");
 humidity = document.querySelector(".humidity");
 weather = document.querySelector(".weather");
 desc = document.querySelector(".desc");
-API = "8cf5ac5621c8d0266298a149e49d7514";
+API = ""; // Put in your API
 // ---------------------------------------
 const setWeatherDetails = (data) => {
   // console.log(data);
-  desc.innerHTML = data.weather[0].description;
-  weather.innerHTML = Math.round((data.main.temp - 273.15) * 9/5 + 32) + "°F";
-  humidity.innerHTML = data.main.humidity + "%";
-  windSpeed.innerHTML = data.wind.speed + "km/h";
+  //Weather description
+  desc.innerHTML = 0;
+  //Temperature
+  weather.innerHTML = 0;
+  //Humidity
+  humidity.innerHTML = 0;
+  //Wind Speed
+  windSpeed.innerHTML = 0;
   switch (data.weather[0].main) {
     case "Clouds":
       weatherIcon.src =
@@ -42,22 +46,7 @@ const setWeatherDetails = (data) => {
 };
 
 const callAPI = (id) => {
-  fetch(
-    `https://api.openweathermap.org/data/2.5/weather?q=${searchInput.value}&appid=${id}`
-  )
-    .then((response) => {
-      // indicates whether the response is successful (status code 200-299) or not
-      if (!response.ok) {
-        alert("Check spelling of City and try again or Something Went Wrong!");
-        throw new Error(`Request failed with status ${response.status}`);
-      }
-      return response.json();
-    })
-    .then((data) => {
-      setWeatherDetails(data);
-      console.log(data);
-    })
-    .catch((error) => console.log(error));
+  //Code to fetch the API
 };
 
 searchButton.addEventListener("click", (e) => {
