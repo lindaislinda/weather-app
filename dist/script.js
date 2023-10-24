@@ -13,14 +13,19 @@ const callAPI = (api) => {
 
 const setWeatherDetails = (data) => {
   // console.log(data);
+  
   //Weather description
-  desc.innerHTML = 0;
+  desc.innerHTML = "Some weather description";
+  
   //Temperature
   weather.innerHTML = 0;
+  
   //Humidity
   humidity.innerHTML = 0;
+  
   //Wind Speed
   windSpeed.innerHTML = 0;
+  
   switch (data.weather[0].main) {
     case "Clouds":
       weatherIcon.src =
