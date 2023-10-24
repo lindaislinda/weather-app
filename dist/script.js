@@ -5,7 +5,7 @@ windSpeed = document.querySelector("#windSpeed");
 humidity = document.querySelector(".humidity");
 weather = document.querySelector(".weather");
 desc = document.querySelector(".desc");
-API = "d908669f484525330f748c49c5a11dd7"; // Put in your API
+API = ""; // Put in your API
 // ---------------------------------------
 
 const callAPI = (api) => {
