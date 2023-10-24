@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather</title>
+    <link rel="stylesheet" href="output.css">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+</head>
+<body class="flex h-screen items-center justify-center bg-[#9c9dde] font-ubuntu">
+    <div class="w-96 bg-white rounded-lg">
+        <div class="w-full flex p-4 justify-center">
+            <input type="text" placeholder="Enter City Name" id="searchInput" value="New York" class="w-full h-8 outline-none text-sm text-[#525050] px-2 rounded-full border border-[#b3b3b3] focus:border-[#9c9dde]"/>
+            <button id="searchButton" class="w-9 h-8 cursor-pointer text-[#9b9b9b] rounded-full ml-1 transition-all duration-300 bg-white border border-[#b3b3b3] hover:bg-[#9c9dde] hover:text-white"><i class="fa-solid fa-magnifying-glass"></i></button>
+        </div>
+        <div class="">
+            <div class=" flex py-2 justify-center">
+                <img src="Images/sun.png" alt="Clouds" id="weatherIcon" class="w-[8rem] max-w-full">
+            </div>
+            <div class=" text-[#323232] text-2.5xl text-center mb-2 mt-4">
+                <div class="weather" id="weather"></div>
+                <div class="desc"></div>
+            </div>
+            <div class=" flex mt-4 mb-6 justify-between ml-4 mr-4">
+                <div class=" flex text-[#323232] text-lg">
+                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhgr7XehXJkOPXbZr8xL42sZEFYlS-1fQcvUMsS2HrrV8pcj3GDFaYmYmeb3vXfMrjGXpViEDVfvLcqI7pJ03pKb_9ldQm-Cj9SlGW2Op8rxArgIhlD6oSLGQQKH9IqH1urPpQ4EAMCs3KOwbzLu57FDKv01PioBJBdR6pqlaxZTJr3HwxOUlFhC9EFyw/s320/thermometer.png" alt="Humidity" class="h-[3rem] mr-2">
+                    <div>
+                        <p class="humidity"></p>
+                        <span>Humidity</span>
+                    </div>
+                </div>
+                <div class=" flex text-[#323232] text-lg">
+                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiyaIguDPkbBMnUDQkGp3wLRj_kvd_GIQ4RHQar7a32mUGtwg3wHLIe0ejKqryX8dnJu-gqU6CBnDo47O7BlzCMCwRbB7u0Pj0CbtGwtyhd8Y8cgEMaSuZKrw5-62etXwo7UoY509umLmndsRmEqqO0FKocqTqjzHvJFC2AEEYjUax9tc1JMWxIWAQR4g/s320/wind.png" alt="Wind Speed" class="h-[3rem] mr-2">
+                    <div>
+                        <p id="windSpeed"></p>
+                        <span>Wind Speed</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
